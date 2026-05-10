@@ -1,1 +1,8 @@
-
+name: Detailed display
+uses: gh-metrics/metrics@latest
+with:
+  filename: metrics.plugin.achievements.svg
+  token: ${{ secrets.METRICS_TOKEN }}
+  base: ""
+  plugin_achievements: yes
+  plugin_achievements_only: sponsor, maintainer, octonaut
