@@ -27,13 +27,13 @@ jobs:
               --color-border: rgba(176, 141, 106, 0.2);
             }
             .container {
-              width: 850px !important;
+              width: 1200px !important;
               display: grid !important;
-              grid-template-columns: 1fr 1fr !important;
+              grid-template-columns: repeat(3, 1fr) !important;
               gap: 24px !important;
             }
             .container > section:first-of-type {
-              grid-column: span 2 !important;
+              grid-column: span 3 !important;
             }
             section {
               margin-bottom: 0 !important;
