@@ -26,18 +26,16 @@ jobs:
               --color-icon: #B08D6A;
               --color-border: rgba(176, 141, 106, 0.2);
             }
-            /* Сетка для двух колонок (начинается после шапки) */
             .container {
               display: flex;
               flex-wrap: wrap;
               gap: 20px;
             }
             section {
-              flex: 1 1 45%; /* Каждая колонка занимает примерно половину */
+              flex: 1 1 45%;
               min-width: 300px;
               margin-bottom: 20px;
             }
-            /* Оставляем хедер на всю ширину */
             section.base\.header {
               flex: 1 1 100%;
             }
