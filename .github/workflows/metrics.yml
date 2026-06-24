@@ -15,9 +15,9 @@ jobs:
           token: ${{ secrets.METRICS_TOKEN }}
           template: classic
           config_timezone: Europe/Moscow
-          config_order: base.header, languages, isocalendar
+          config_order: base.header, languages, isocalendar, topics
           base: header, activity, community, repositories, metadata
-          
+
           extras_css: |
             :root {
               --color-background: #FAF8F5;
@@ -60,5 +60,10 @@ jobs:
           plugin_lines_sections: languages, repositories
           plugin_lines_repositories_limit: 5
           
+          plugin_topics: yes
+          plugin_topics_sort: stars
+          plugin_topics_mode: icons
+          plugin_topics_limit: 15
+
           plugin_achievements: no
           plugin_habits: no
