@@ -1,6 +1,7 @@
 name: Metrics
 on:
-  schedule: [{ cron: "0 0 * * *" }]
+  schedule:
+    - cron: "0 0 * * *"
   workflow_dispatch:
 
 jobs:
@@ -8,17 +9,15 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-
     steps:
-      - uses: lowlighter/metrics@master
+      - uses: lowlighter/metrics@latest
         with:
           token: ${{ secrets.METRICS_TOKEN }}
-
           template: classic
           config_timezone: Europe/Moscow
           config_order: base.header, languages, isocalendar
           base: header, activity, community, repositories, metadata
-
+          
           extras_css: |
             :root {
               --color-background: #FAF8F5;
@@ -27,8 +26,21 @@ jobs:
               --color-icon: #B08D6A;
               --color-border: rgba(176, 141, 106, 0.2);
             }
-
-            section { margin-bottom: 28px; }
+            /* Сетка для двух колонок (начинается после шапки) */
+            .container {
+              display: flex;
+              flex-wrap: wrap;
+              gap: 20px;
+            }
+            section {
+              flex: 1 1 45%; /* Каждая колонка занимает примерно половину */
+              min-width: 300px;
+              margin-bottom: 20px;
+            }
+            /* Оставляем хедер на всю ширину */
+            section.base\.header {
+              flex: 1 1 100%;
+            }
             h2 {
               color: var(--color-title);
               border-bottom: 3px solid var(--color-border);
@@ -43,13 +55,13 @@ jobs:
           plugin_languages_sections: most-used
           plugin_languages_indepth: yes
           plugin_languages_limit: 8
-
+          
           plugin_isocalendar: yes
           plugin_isocalendar_duration: half-year
-
+          
           plugin_lines: yes
           plugin_lines_sections: languages, repositories
           plugin_lines_repositories_limit: 5
-
+          
           plugin_achievements: no
           plugin_habits: no
