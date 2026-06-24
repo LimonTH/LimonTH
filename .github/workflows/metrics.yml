@@ -27,17 +27,16 @@ jobs:
               --color-border: rgba(176, 141, 106, 0.2);
             }
             .container {
-              display: flex;
-              flex-wrap: wrap;
-              gap: 20px;
+              width: 850px !important;
+              display: grid !important;
+              grid-template-columns: 1fr 1fr !important;
+              gap: 24px !important;
+            }
+            .container > section:first-of-type {
+              grid-column: span 2 !important;
             }
             section {
-              flex: 1 1 45%;
-              min-width: 300px;
-              margin-bottom: 20px;
-            }
-            section.base\.header {
-              flex: 1 1 100%;
+              margin-bottom: 0 !important;
             }
             h2 {
               color: var(--color-title);
@@ -46,7 +45,7 @@ jobs:
               margin-bottom: 16px;
             }
             .field { margin-bottom: 12px; }
-
+            
           plugin_languages: yes
           plugin_languages_ignored: html, css, scss
           plugin_languages_details: percentage
